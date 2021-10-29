@@ -2,8 +2,8 @@
 
 // gcc -c cg2d.c
 // gcc -c cg3d.c
-// gcc exemplo_teste_3d.c -o exemplo_teste_3d cg3d.o cg2d.o bibaux.o -lm -lX11
-// ./exemplo_teste_3d
+// gcc exercicio3.c -o ex3 cg3d.o cg2d.o bibaux.o -lm -lX11
+// ./ex3
 
 matrix3d* xAxisRotationMatrix(float angle)
 {
@@ -89,7 +89,6 @@ int main(void) {
  SetColor(0,0,1,palheta);
  
  p = (point3d *) malloc(sizeof(point3d));
- rotMtxZ = zAxisRotationMatrix(30);
  rotMtxY = yAxisRotationMatrix(30);
  
  f1 = CreateFace(3);
@@ -97,19 +96,19 @@ int main(void) {
  p->y = 10.0;
  p->z = 0.0;
  p->color = 1;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f1);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f1);
  // SetPointFace(p,f1);
  p->x = 10.0;
  p->y = 0.0;
  p->z = 15.0;
  p->color = 1;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f1);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f1);
  // SetPointFace(p,f1);
  p->x = 10.0;
  p->y = -10.0;
  p->z = 0.0;
  p->color = 1;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f1);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f1);
  // SetPointFace(p,f1);
  
  f2 = CreateFace(3);
@@ -117,19 +116,19 @@ int main(void) {
  p->y = 10.0;
  p->z = 0.0;
  p->color = 2;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f2);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f2);
  // SetPointFace(p,f2);
  p->x = -10.0;
  p->y = 0.0;
  p->z = 15.0;
  p->color = 2;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f2);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f2);
  // SetPointFace(p,f2);
  p->x = -10.0;
  p->y = -10.0;
  p->z = 0.0;
  p->color = 2;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f2);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f2);
  // SetPointFace(p,f2);
  
  f3 = CreateFace(4);
@@ -137,25 +136,25 @@ int main(void) {
  p->y = 10.0;
  p->z = 0.0;
  p->color = 3;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f3);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f3);
  // SetPointFace(p,f3);
  p->x = 10.0;
  p->y = 0.0;
  p->z = 15.0;
  p->color = 3;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f3);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f3);
  // SetPointFace(p,f3);
  p->x = -10.0;
  p->y = 0.0;
  p->z = 15.0;
  p->color = 3;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f3);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f3);
  // SetPointFace(p,f3);
  p->x = -10.0;
  p->y = 10.0;
  p->z = 0.0;
  p->color = 3;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f3); 
+ SetPointFace(LinearTransf3d(rotMtxY,p),f3); 
  // SetPointFace(p,f3); 
 
  f4 = CreateFace(4);
@@ -163,25 +162,25 @@ int main(void) {
  p->y = 0.0;
  p->z = 15.0;
  p->color = 4;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f4);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f4);
  // SetPointFace(p,f4);
  p->x = 10.0;
  p->y = -10.0;
  p->z = 0.0;
  p->color = 4;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f4);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f4);
  // SetPointFace(p,f4);
  p->x = -10.0;
  p->y = -10.0;
  p->z = 0.0;
  p->color = 4;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f4);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f4);
  // SetPointFace(p,f4);
  p->x = -10.0;
  p->y = 0.0;
  p->z = 15.0;
  p->color = 4; 
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f4); 
+ SetPointFace(LinearTransf3d(rotMtxY,p),f4); 
  // SetPointFace(p,f4); 
 
  f5 = CreateFace(4);
@@ -189,25 +188,25 @@ int main(void) {
  p->y = 10.0;
  p->z = 0.0;
  p->color = 5; 
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f5);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f5);
  // SetPointFace(p,f5);
  p->x = 10.0;
  p->y = -10.0;
  p->z = 0.0;
  p->color = 5;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f5);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f5);
  // SetPointFace(p,f5);
  p->x = -10.0;
  p->y = -10.0;
  p->z = 0.0;
  p->color = 5;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f5);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f5);
  // SetPointFace(p,f5);
  p->x = -10.0;
  p->y = 10.0;
  p->z = 0.0;
  p->color = 5;
- SetPointFace(LinearTransf3d(rotMtxZ,LinearTransf3d(rotMtxY,p)),f5);
+ SetPointFace(LinearTransf3d(rotMtxY,p),f5);
  // SetPointFace(p,f5);
  
  ob = CreateObject3D(5);
