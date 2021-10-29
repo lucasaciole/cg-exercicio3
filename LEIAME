@@ -1,0 +1,37 @@
+Código escrito por:
+
+Lucas Aciole - 619680
+Eric Moreira - 799662
+
+Execução:
+
+gcc -c cg2d.c
+gcc -c cg3d.c
+gcc exercicio3.c -o ex3 cg2d.o cg3d.o bibaux.o -lm -lX11
+sudo chmod -x ex3
+./ex3
+
+Altere a matriz de rotação na linha 92 e 93 do arquivo exercicio3.c
+O código atual rotaciona o objeto apresentado em 30 graus no eixo Z e depois 30 graus no eixo Y.
+
+
+1. Existe algum efeito colateral que decorre das operações simultâneas efetuadas nos códigos desenvolvidos para os itens acima? Justifique sua resposta.
+
+	A cada rotação feita sem a devida translação para o centro do SRU, o objeto acaba também sofrendo deslocamentos. Por causa disso, operações simultâneas pioram cada vez mais esse deslocamento.
+
+2. O que podemos esperar se o objeto utilizado no exemplo for deslocado em qualquer direção antes das operações de rotação? Justifique.
+	
+	A cada rotação feita sem a devida translação para o centro do SRU, o objeto vai sofrendo deslocamentos. Se deslocarmos ele mais longe do centro do SRU, essas deformações vão se tornando piores
+
+3. Descreva as vantagens de realizar uma rotação como uma transformação linear.
+
+	A principal vantagem de realizar a rotação como uma transformação linear é transformar a operação de rotação numa operação de matriz. Isso traz as vantagens de transformações lineares, possibilitando a adição de várias operações de forma extremamente simples, e além disso as GPUs atuais são extremamente otimizadas para operações de matrizes e vetores.
+	
+	
+4. Existe uma ordem para executarmos as operações de rotação? Isto é, se realizarmos uma rotação em torno de x e posteriormente em torno do eixo z, o resultado esperado é o mesmo se primeiro rotacionarmos o objeto em z e depois em x? Justifique sua resposta.
+
+	Como a cada rotação feita sem a devida translação para o centro do SRU o objeto se desloca, esse deslocamento pode trazer diferentes resultados ao testar a comutação de operações, isto é, rotacionar em um eixo e depois no outro sem essa translação traz um resultado diferente se fizermos as rotações na ordem contrária.
+
+5. Descreva em que momento do pipeline de visualização devem ser realizadas as operações de rotação e qual o sistema de referência utilizado. Justifique.
+
+	É importante que as rotações sejam realizadas antes da passagem da visualização dos objetos para a base do Observador Virtual no seu Plano de Visualização. Senão, será necessário multiplicar a matriz de rotação pela matriz de transformação de bases, uma vez que a matriz de rotação se baseia na base canonica do SRU.
