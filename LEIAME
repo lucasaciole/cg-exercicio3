@@ -11,8 +11,8 @@ gcc exercicio3.c -o ex3 cg2d.o cg3d.o bibaux.o -lm -lX11
 sudo chmod -x ex3
 ./ex3
 
-Altere a matriz de rotação na linha 92 e 93 do arquivo exercicio3.c
-O código atual rotaciona o objeto apresentado em 30 graus no eixo Z e depois 30 graus no eixo Y.
+Altere a matriz de rotação na linha 92 do arquivo exercicio3.c
+O código atual rotaciona o objeto apresentado em 30 graus no eixo Y.
 
 
 1. Existe algum efeito colateral que decorre das operações simultâneas efetuadas nos códigos desenvolvidos para os itens acima? Justifique sua resposta.
